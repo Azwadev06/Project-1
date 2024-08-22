@@ -8,7 +8,9 @@
         </p>
     </div>
     <div class="course-card" *ngFor="let course of popularCourses">
-        
+        <div class="course-image">
+            <img [src]="course.image">
+        </div>
         <div class="course-title">
             {{ course.title }}
         </div>
@@ -25,7 +27,7 @@
         </div>
     </div>
     <div class="popular-course-bottom">
-        <button class="go-to-course-button"  (click)="navigateToCourses()"> 
+        <button class="go-to-course-button" (click)="navigateToCourses()">
             Go to Courses Page 
             <i class="fa fa-arrow-right" aria-hidden="true"></i>
         </button>

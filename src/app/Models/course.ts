@@ -1,6 +1,7 @@
 export class Course{
     id!: number ; 
-    title!: string; 
+    title!: string;
+    image!:string; 
     price!: number; 
     desc!: string;  
     rating!: number; 

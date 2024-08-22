@@ -1,17 +1,17 @@
-<div class="courses-page-main-container">
-    <div class="courses-banner">
-        <div class="courses-banner-layover">
+<div class="course-page-main-container">
+    <div class="course-banner">
+        <div class="course-banner-layover">
             <h1>Empower your future with procademy's high quality online coding classes.</h1>
         </div>
     </div>
-    <div class="courses-page-all-courses">
+    <div class="course-page-all-course">
         <h2>Choose the course best suits you</h2>
         <hr>
-        <div class="courses-page-course-list">
+        <div class="course-page-course-list">
             <div class="course-card" *ngFor="let course of AllCourses">
-                <!-- <div class="course-image">
+                <div class="course-image">
                     <img [src]="course.image">
-                </div> -->
+                </div>
                 <div class="course-title">
                     {{ course.title }}
                 </div>
@@ -23,11 +23,11 @@
                     <div class="course-rating"><b>RATINGS:</b> {{ course.rating }}</div>
                 </div>
                 <div class="course-action-buttons">
-                    <button class="btn" routerLink="/Courses/Checkout" [state]="course">BUY NOW</button>
-                    <button class="btn" [routerLink]="'/Courses/Course/'+ course.id">DETAILS</button>
+                    <button class="btn" routerLink="/course/Checkout" [state]="course">BUY NOW</button>
+                    <button class="btn" [routerLink]="'/course/Course/'+ course.id">DETAILS</button>
                 </div>
             </div>
         </div>
     </div>
-    <a routerLink="/Courses" [queryParams]="{search: 'JavaScript'}">Show JavaScript Courses</a>
+    <a routerLink="/course" [queryParams]="{search: 'JavaScript'}">Show JavaScript course</a>
 </div>

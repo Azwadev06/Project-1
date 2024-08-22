@@ -9,7 +9,10 @@ import { ServicesService } from 'src/app/Services/services.service';
 export class ServiceComponent implements OnInit {
 service: any;
 servicesService = inject(ServicesService);
-services: {title: string, description: string}[] = [];
+services: {
+image: any;
+title: string, description: string
+}[] = [];
 
 ngOnInit(){
     this.services = this.servicesService.services;
