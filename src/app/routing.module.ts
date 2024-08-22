@@ -1,0 +1,40 @@
+import { NgModule } from '@angular/core';
+import { Routes, RouterModule } from '@angular/router';
+import { HomeComponent } from './home/home.component';
+import { ContactComponent } from './contact/contact.component';
+import { AboutComponent } from './about/about.component';
+import { LoginComponent } from './login/login.component';
+import { CourseComponent } from './course/course.component';
+import { CourseDetailsComponent } from './course/course-details/course-details.component';
+import { NotFoundComponent } from './not-found/not-found.component';
+import { PopularComponent } from './home/popular/popular.component';
+import { CheckoutComponent } from './checkout/checkout.component';
+import { AuthGuardService } from './Services/authguard.service';
+import { CanActivate, CanActivateChild, resolve } from './auth.gaurd';
+
+
+//DEFINE ROUTE
+const routes:Routes=[
+    { path:'', component:HomeComponent},
+    //{ path:'',redirectTo: '', pathMatch: 'full'},
+    { path:'Home', component:HomeComponent},
+    { path:'About', component:AboutComponent},
+    {path: 'Contact', component: ContactComponent, canDeactivate: [(comp: ContactComponent) => {return comp.canExit();}]},
+    {path: 'Courses', component: CourseComponent, resolve: {courses: resolve}},
+    { path: 'Courses', canActivateChild: [CanActivateChild], children: [
+        { path: 'Course/:id', component: CourseDetailsComponent},
+        { path: 'Popular', component:PopularComponent},
+        { path: 'Checkout', component:CheckoutComponent }
+    ]},
+    { path: 'Login', component: LoginComponent},
+    { path:'**', component:NotFoundComponent}
+  ]
+@NgModule({
+    imports: [
+        RouterModule.forRoot(routes, {enableTracing: true})
+    ],
+    exports: [RouterModule]
+})
+export class RoutingModule{
+
+}
